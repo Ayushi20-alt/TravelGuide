@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/a2">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.notesapp.Fragments.notesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_saveorDeleteFragment"
+            app:destination="@id/saveorDeleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveorDeleteFragment"
+        android:name="com.example.notesapp.Fragments.saveorDeleteFragment"
+        android:label="fragment_saveor_delete"
+        tools:layout="@layout/fragment_saveor_delete" >
+        <action
+            android:id="@+id/action_saveorDeleteFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <argument android:name="note"
+            android:defaultValue="@null"
+            app:argType="com.example.notesapp.model.Note"
+            app:nullable="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/placesMapList3"
+        android:name="com.example.notesapp.Fragments.PlacesMapList"
+        android:label="PlacesMapList"
+        tools:layout="@layout/fragment_places_map_list">
+        <action
+            android:id="@+id/action_placesMapList3_to_displayMapsActivity"
+            app:destination="@id/displayMapsActivity" />
+        <argument
+            android:name="userMap"
+            app:argType="com.example.notesapp.model.UserMap"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
+        <action
+            android:id="@+id/action_placesMapList3_to_createMapActivity"
+            app:destination="@id/createMapActivity" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/a2"
+        android:name="com.example.notesapp.Fragments.A"
+        android:label="fragment_a"
+        tools:layout="@layout/fragment_a" >
+        <action
+            android:id="@+id/action_a2_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <action
+            android:id="@+id/action_a2_to_placesMapList3"
+            app:destination="@id/placesMapList3" />
+        <action
+            android:id="@+id/action_a2_to_b2"
+            app:destination="@id/b2" />
+    </fragment>
+    <fragment
+        android:id="@+id/b2"
+        android:name="com.example.notesapp.Fragments.b"
+        android:label="fragment_b"
+        tools:layout="@layout/fragment_b" />
+    <fragment
+        android:id="@+id/listMapfrag"
+        android:name="com.example.notesapp.Fragments.listMapfrag"
+        android:label="fragment_list_mapfrag"
+        tools:layout="@layout/fragment_list_mapfrag" />
+    <activity
+        android:id="@+id/displayMapsActivity"
+        android:name="com.example.notesapp.activities.DisplayMapsActivity"
+        android:label="activity_display_maps"
+        tools:layout="@layout/activity_display_maps" />
+    <activity
+        android:id="@+id/createMapActivity"
+        android:name="com.example.notesapp.activities.CreateMapActivity"
+        android:label="activity_create_map"
+        tools:layout="@layout/activity_create_map" />
+
+</navigation>
